@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lumière Beauty Store</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:#fffafc;
+}
+
+nav{
+display:flex;
+justify-content:center;
+gap:30px;
+padding:20px;
+background:white;
+position:sticky;
+top:0;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+nav a{
+text-decoration:none;
+color:#ff4da6;
+font-weight:bold;
+}
+
+.banner{
+height:420px;
+background:url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9');
+background-size:cover;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+color:white;
+text-align:center;
+}
+
+.banner h1{
+font-size:60px;
+}
+
+.btn{
+background:#ff4da6;
+color:white;
+padding:12px 25px;
+border:none;
+border-radius:25px;
+cursor:pointer;
+margin-top:10px;
+}
+
+.products{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+padding:40px;
+}
+
+.card{
+background:white;
+padding:15px;
+border-radius:15px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:10px;
+}
+
+footer{
+text-align:center;
+padding:40px;
+background:#fff0f5;
+margin-top:40px;
+}
+
+#popup{
+display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 0 20px rgba(0,0,0,0.3);
+}
+</style>
+
+<!-- Clarity (gắn sẵn) -->
+<script type="text/javascript">
+(function(c,l,a,r,i,t,y){
+c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/wqv0yjlrn0";
+y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script");
+</script>
+
+</head>
+
+<body>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Products</a>
+<a href="#">Skincare</a>
+<a href="#">Contact</a>
+</nav>
+
+<section class="banner">
+<h1>Lumière Beauty</h1>
+<p>Glow with confidence</p>
+
+<!-- 👉 NÚT GIA NHẬP -->
+<button class="btn" onclick="signup()">Gia nhập ngay</button>
+</section>
+
+<section class="products">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1612810436541-336d6d8a14a5">
+<h3>Glow Serum</h3>
+<p>₩29,000</p>
+<button class="btn" onclick="buy()">Buy</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348">
+<h3>Hydra Cream</h3>
+<p>₩32,000</p>
+<button class="btn" onclick="buy()">Buy</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be">
+<h3>Vitamin C</h3>
+<p>₩25,000</p>
+<button class="btn" onclick="buy()">Buy</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9">
+<h3>Glow Mask</h3>
+<p>₩18,000</p>
+<button class="btn" onclick="buy()">Buy</button>
+</div>
+
+</section>
+
+<footer>
+<p>© Lumière Beauty Store</p>
+</footer>
+
+<!-- POPUP -->
+<div id="popup">
+<h3>Ưu đãi đặc biệt 🎉</h3>
+<p>Giảm 20% cho người mới</p>
+<button class="btn" onclick="closePopup()">Đóng</button>
+</div>
+
+<script>
+function signup(){
+alert("Signup clicked");
+gtag('event','signup_click');
+}
+
+function buy(){
+alert("Buy clicked");
+gtag('event','buy_click');
+}
+
+setTimeout(()=>{
+document.getElementById("popup").style.display="block";
+gtag('event','popup_view');
+},3000);
+
+function closePopup(){
+document.getElementById("popup").style.display="none";
+}
+
+window.addEventListener("beforeunload", function(){
+gtag('event','page_exit');
+});
+</script>
+
+</body>
+</html>
